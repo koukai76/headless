@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const mysql = require('mysql2');
-// require('dotenv').config();
+require('dotenv').config();
 
 const connection = mysql.createConnection({
   host: process.env.HOST,
@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
   user: process.env.USER,
   password: process.env.PASSWORD,
   ssl: {
-    rejectUnauthorized: true,
+    rejectUnauthorized: false,
   },
 });
 
