@@ -1,4 +1,29 @@
 const puppeteer = require('puppeteer');
+const mysql = require('mysql2');
+require('dotenv').config();
+
+const connection = mysql.createConnection({
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  ssl: {
+    rejectUnauthorized: true,
+  },
+});
+
+const query = (sql, params) => {
+  return new Promise((resolve, reject) => {
+    connection.query(sql, params, (err, results, fields) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({ results: results, fields: fields });
+    });
+  });
+};
 
 (async () => {
   // const URL = 'https://www.serversus.work/';
@@ -32,4 +57,7 @@ const puppeteer = require('puppeteer');
   });
 
   await browser.close();
+  
+  const ret = await query('SELECT * FROM users');
+  console.log(ret.results);
 })();
