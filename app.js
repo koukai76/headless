@@ -3,12 +3,12 @@ const mysql = require('mysql2');
 require('dotenv').config();
 
 const connection = mysql.createConnection({
-  host: process.env.HOST,
-  database: process.env.DATABASE,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
+  host: process.env.HOST100,
+  database: process.env.DATABASE100,
+  user: process.env.USER100,
+  password: process.env.PASSWORD100,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true,
   },
 });
 
@@ -26,6 +26,8 @@ const connection = mysql.createConnection({
 // };
 
 (async () => {
+  console.log(await connection.getMaxListeners());
+  
   // const URL = 'https://www.serversus.work/';
   const URL = 'https://www.yahoo.co.jp/';
 
