@@ -12,7 +12,12 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: install command
-      run: npm i puppeteer
+      run: npm i puppeteer mysql2 dotenv
 
     - name: RUN app.js
+      env:
+        DATABASE: ${{ secrets.DATABASE }}
+        HOST: ${{ secrets.HOST }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        USER: ${{ secrets.USER }}
       run: node app.js
