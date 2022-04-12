@@ -28,7 +28,7 @@ const puppeteer = require('puppeteer');
   
   ret.map(m => {
     console.log(m.title);
-    console.log(m.href)
+    console.log(m.href + "\n")
   });
 
   await browser.close();
