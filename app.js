@@ -28,7 +28,7 @@ const query = (sql, params) => {
 (async () => {
   const ret2 = await query('SELECT * FROM users');
   console.log(ret2.results);
-  await connection.end()
+  connection.end()
   
   const URL = 'https://www.serversus.work/';
   // const URL = 'https://www.yahoo.co.jp/';
