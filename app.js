@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const mysql = require('mysql2');
-require('dotenv').config();
+// require('dotenv').config();
 
 const connection = mysql.createConnection({
   host: process.env.HOST,
@@ -26,6 +26,8 @@ const query = (sql, params) => {
 };
 
 (async () => {
+  console.log(process.env.DATABASE + "bb");
+  
   // const URL = 'https://www.serversus.work/';
   const URL = 'https://www.yahoo.co.jp/';
 
@@ -58,6 +60,6 @@ const query = (sql, params) => {
 
   await browser.close();
   
-  const ret2 = await query('SELECT * FROM users');
-  console.log(ret2.results);
+//   const ret2 = await query('SELECT * FROM users');
+//   console.log(ret2.results);
 })();
