@@ -1,0 +1,18 @@
+name: RUN puppeteer
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: install command
+      run: npm i puppeteer
+
+    - name: RUN app.js
+      run: node app.js
