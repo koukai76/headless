@@ -12,6 +12,19 @@ const connection = mysql.createConnection({
   },
 });
 
+const query = (sql, params) => {
+  return new Promise((resolve, reject) => {
+    connection.query(sql, params, (err, results, fields) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({ results: results, fields: fields });
+    });
+  });
+};
+
 // const query = (sql, params) => {
 //   return new Promise((resolve, reject) => {
 //     connection.query(sql, params, (err, results, fields) => {
