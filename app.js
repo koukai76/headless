@@ -26,7 +26,9 @@ const connection = mysql.createConnection({
 // };
 
 (async () => {
-  console.log(await connection.getMaxListeners());
+  // console.log(await connection.getMaxListeners());
+  const ret = await query('SELECT * FROM users');
+  console.log(ret.results);
   await connection.end()
   
   // const URL = 'https://www.serversus.work/';
