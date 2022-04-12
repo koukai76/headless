@@ -2,7 +2,7 @@ name: RUN puppeteer
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main2 ]
 
 jobs:
   job1:
@@ -16,8 +16,8 @@ jobs:
 
     - name: RUN app.js
       env:
-        DATABASE: ${{ secrets.DATABASE }}
-        HOST: ${{ secrets.HOST }}
-        PASSWORD: ${{ secrets.PASSWORD }}
-        USER: ${{ secrets.USER }}
+        DATABASE100: ${{ secrets.DATABASE }}
+        HOST100: ${{ secrets.HOST }}
+        PASSWORD100: ${{ secrets.PASSWORD }}
+        USER100: ${{ secrets.USER }}
       run: node app.js
