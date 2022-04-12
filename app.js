@@ -27,9 +27,10 @@ const connection = mysql.createConnection({
 
 (async () => {
   console.log(await connection.getMaxListeners());
+  await connection.end()
   
   // const URL = 'https://www.serversus.work/';
-  const URL = 'https://www.yahoo.co.jp/';
+  // const URL = 'https://www.yahoo.co.jp/';
 
   // const browser = await puppeteer.launch({});
   // const page = await browser.newPage();
