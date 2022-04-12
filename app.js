@@ -16,11 +16,20 @@ const puppeteer = require('puppeteer');
   // console.log(ret);
 
   const ret = await page.evaluate(() => {
-    return Array.from(document.querySelectorAll('section ul article h1')).map(
-      m => m.textContent
+    return Array.from(document.querySelectorAll('section ul article a')).map(
+      m => {
+        return {
+          title: m.textContent,
+          href: m.href
+        }
+      }
     );
   });
-  ret.map(m => console.log(m));
+  
+  ret.map(m => {
+    console.log(m.title);
+    console.log(m.href)
+  });
 
   await browser.close();
 })();
