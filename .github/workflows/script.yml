@@ -2,7 +2,7 @@ name: RUN puppeteer
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main2 ]
 
 jobs:
   job1:
