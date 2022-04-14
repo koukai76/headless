@@ -44,8 +44,9 @@ const query = (sql, params) => {
     1,
   ]);
   
-  const ret2 = await query('SELECT * FROM users');
-  console.log(ret2.results);
+  const ret2 = await query('SELECT * FROM users WHERE id = 1');
+  console.log(ret2.results[0].first_name);
+  console.log(ret2.results[0].first_name === ret);
   
   connection.end()
   
